@@ -1,0 +1,73 @@
+<!-- Q1, Q2 -->
+<script
+  src="https://code.jquery.com/jquery-3.6.4.min.js"
+  integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+  crossorigin="anonymous"
+></script>
+
+<script>
+  let age = 28;
+  const region = "seoul";
+  console.log(region);
+</script>
+
+<!-- Q3 -->
+<script>
+  var 예금액 = 60000;
+  var 미래예금액 = 0;
+
+  if (예금액 >= 50000) {
+    미래예금액 = 예금액 * 1.2 * 1.2;
+  } else {
+    미래예금액 = 예금액 * 1.15 * 1.15;
+  }
+  console.log(미래예금액);
+</script>
+
+<!-- Q4 -->
+<script>
+  var first = 360;
+  var total = 1;
+
+  var result1 = (first * 2) / 3;
+  var result2 = (result1 * 2) / 3;
+
+  total = first + result1 + result2;
+
+  console.log(total);
+</script>
+
+<!-- Q5 -->
+<p>태조 이성계가 태어난 년도는?</p>
+<input type="text" id="answer" />
+<button id="send-answer">제출</button>
+
+<script>
+  var count = 0;
+  $("#send-answer").click(function () {
+    count++;
+
+    if ($("#answer").val() == "1335") {
+      alert("정답입니다~");
+    } else if ($("#answer").val() != "1335" && count < 3) {
+      alert("다시~~");
+    } else if ($("#answer").val() != "1335" && count >= 3) {
+      alert("헐 3번이나 틀렸습니다~~~~");
+    }
+  });
+</script>
+
+<!-- 응용문제 1-->
+<script>
+  var num = 1.2 ** 10;
+</script>
+
+<!-- 응용문제 2 -->
+<script>
+  var first = 360;
+  var ratio = 2 / 3;
+  var total = 1;
+
+  total = first / (1 - ratio);
+  // 답 : 1080ml
+</script>

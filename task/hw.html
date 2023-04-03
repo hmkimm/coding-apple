@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>if/else, function 과제</title>
+    <link rel="stylesheet" href="../style.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.4.min.js"
+      integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <p>과제 1,2</p>
+    <script>
+      function game(num) {
+        // const num = 5;
+        if (num % 3 == 0 && num % 9 != 0) {
+          console.log("clap");
+        } else if (num % 9 == 0) {
+          console.log("clapclap");
+        } else {
+          console.log("false");
+        }
+      }
+      game(18);
+
+      function forgame(lastNum) {
+        for (var i = 0; i <= 10; i++) {
+          console.log(i);
+        }
+      }
+    </script>
+
+    <p>과제3</p>
+    <script>
+      function pass(gae, min) {
+        if ((gae + min >= 120 && gae, min > 40)) {
+          console.log("합격");
+        } else {
+          console.log("아쉽지만 다시 도전");
+        }
+      }
+      pass(100, 41);
+    </script>
+
+    <p>응용 과제</p>
+    <script>
+      // let num = 0;
+      // while (num > 0) {
+      //   num++;
+      num = 6;
+      const check = String(num).charAt(num.length - 1);
+      if (check == 3 || check == 6 || check == 9) {
+        console.log("박수");
+      }
+    </script>
+
+    <p>응용 과제2</p>
+    <script>
+      // <!-- (응용2) 합격판독기에 0에서 100사이 숫자가 아닌걸 입력하면 장난치지 말라고 alert를 띄우려면 어떻게 코드짜야할까요?  -->
+      function pass(gae, min) {
+        if (gae || min > 100 || gae || min < 0) {
+          alert("장난치지 마라~");
+        }
+      }
+      pass(0, 80);
+    </script>
+  </body>
+</html>
+
+<!-- https://codingapple.com/course-status/ -->
