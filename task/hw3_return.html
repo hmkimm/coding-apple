@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>if/else, function 과제</title>
+    <link rel="stylesheet" href="../style.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.4.min.js"
+      integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <script>
+      // Q1 //
+      function ms(m, s) {
+        var time = m * 60 + s;
+        return time * 1000;
+      }
+      // 답 : ms(2,10);
+      //return으로 값 뱉어놨으니, 함수만 다시 호출하면 됨.
+
+      // Q2 내 답안//
+      function 할인가(price, first) {
+        if (first == true) {
+          const extra = -1.5;
+          var totalprice = Math.round((price * 9) / 10) + extra;
+          return totalprice;
+        } else {
+          return totalprice;
+        }
+      }
+      할인가(10, true);
+
+      // Q2 선생님 답안 //
+      function 함수(a, b) {
+        var result = a * 0.9;
+        if (b == true) {
+          result = result - 1.5;
+        }
+        return result;
+      }
+    </script>
+  </body>
+</html>
