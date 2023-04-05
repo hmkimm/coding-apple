@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>캐러셀 만들기</title>
-    <!-- <link
+    <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp"
       crossorigin="anonymous"
-    /> -->
+    />
     <script
       src="https://code.jquery.com/jquery-3.6.4.min.js"
       integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
@@ -20,6 +20,55 @@
   </head>
 
   <body>
+    <body id="main">
+      <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <span class="navbar-brand">HM Shop</span>
+          <span class="badge bg-dark">Dark 🔄</span>
+          <button class="navbar-toggler" type="button">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </nav>
+      <div style="height:1000px"></div>
+      <script>
+        var count = 0;
+        $(".badge").on("click", function () {
+          count++;
+          console.log(count);
+  
+          if (count % 2 == 0) {
+            $(".badge").html("Light 🔄");
+            $("#main").removeClass("dark");
+            $(".navbar").removeClass("navbar-dark bg-dark");
+          } else {
+            $(".badge").html("Dark 🔄");
+            $("#main").addClass("dark");
+            $(".navbar").addClass("navbar-dark bg-dark");
+          }
+        });
+      </script>
+
+<script>
+   $(window).on('scroll', function(){
+    if ($(window).scrollTop() >= 220){
+      $('.navbar-brand').css('font-size','30px')
+   }
+   else if($(window).scrollTop() < 220) {
+      $('.navbar-brand').css('font-size', '18px')
+   }
+  });
+  
+
+
+  // window.addEventListener('scroll', function(){
+  //   window.scrollY(220);
+  // })
+  // $(window).on('scroll', function(){
+  //   $(window).scrollTop(100px)
+  // })
+</script>
+<!-- 캐러셀 -->
     <div style="overflow: hidden">
       <div class="slide-container">
         <div class="slide-box">
@@ -88,6 +137,12 @@
       $(".slide-3").on("click", function () {
         $(".slide-container").css("transform", "translateX(-200vw)");
       });
+    </script>
+
+    <div class="lorem" style="width:200px; height: 100px; overflow-y: scroll;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis, fugiat dolore? Perspiciatis soluta mollitia explicabo beatae laborum consequuntur, repellat excepturi distinctio nesciunt ut tenetur quia eaque omnis expedita, eligendi accusantium!</div>
+
+    <script>
+      //div의 스크롤바 내린 양 + 눈에 보이는 div 높이== div 실제 높이
     </script>
   </body>
 </html>
