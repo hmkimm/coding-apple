@@ -24,13 +24,13 @@
       <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
           <span class="navbar-brand">HM Shop</span>
-          <span class="badge bg-dark">Dark 🔄</span>
+          <span class="badge bg-dark">Light 🔄</span>
           <button class="navbar-toggler" type="button">
             <span class="navbar-toggler-icon"></span>
           </button>
         </div>
       </nav>
-      <div style="height:1000px"></div>
+      
       <script>
         var count = 0;
         $(".badge").on("click", function () {
@@ -39,15 +39,17 @@
   
           if (count % 2 == 0) {
             $(".badge").html("Light 🔄");
-            $("#main").removeClass("dark");
+            $("#main").removeClass("bg-dark");
             $(".navbar").removeClass("navbar-dark bg-dark");
           } else {
             $(".badge").html("Dark 🔄");
-            $("#main").addClass("dark");
+            $("#main").addClass("bg-dark");
             $(".navbar").addClass("navbar-dark bg-dark");
           }
         });
       </script>
+      
+      <div style="height:1000px"></div>
 
 <script>
    $(window).on('scroll', function(){
@@ -70,7 +72,9 @@
 </script>
 <!-- 캐러셀 -->
     <div style="overflow: hidden">
+
       <div class="slide-container">
+
         <div class="slide-box">
           <img src="img/car1.png" alt="" />
         </div>
@@ -80,12 +84,17 @@
         <div class="slide-box">
           <img src="img/car3.png" alt="" />
         </div>
+        <!-- <div class="slide-box">물콩이가 안나옴
+          <img src="img/mulkong.jpeg" alt="" />
+        </div> -->
+
       </div>
     </div>
 
     <button class="slide-1">1</button>
     <button class="slide-2">2</button>
     <button class="slide-3">3</button>
+    <button class="slide-4">4</button>
     <button class="next">다음</button>
     <button class="before">이전</button>
 
@@ -122,6 +131,8 @@
           현재사진 += 1;
         } else if (현재사진 == 3) {
           $(".slide-container").css("transform", "translateX(100vw)");
+        } else if (현재사진 == 4) {
+          $('.slide-container').css('transform', 'translateX(200vw)');
         }
       });
 
@@ -142,7 +153,20 @@
     <div class="lorem" style="width:200px; height: 100px; overflow-y: scroll;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis, fugiat dolore? Perspiciatis soluta mollitia explicabo beatae laborum consequuntur, repellat excepturi distinctio nesciunt ut tenetur quia eaque omnis expedita, eligendi accusantium!</div>
 
     <script>
-      //div의 스크롤바 내린 양 + 눈에 보이는 div 높이== div 실제 높이
+      //div의 스크롤바 내린 양 + 눈에 보이는 div 높이 >= div 실제 높이
+ 
+
+   
+      $('.lorem').on('scroll', function(){
+      var a = document.querySelector('.lorem').scrollTop
+      var b = document.querySelector('.lorem').scrollHeight
+
+        if (a + 100 >= b) {
+          alert('약관 확인 완료')
+        }
+        console.log(a ,b)
+      })
+    
     </script>
   </body>
 </html>

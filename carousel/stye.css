@@ -15,7 +15,7 @@ body {
   font-size: 30px;
 }
 .slide-container {
-  width: 300vw;
+  width: 400vw;
   transition: all 1s;
   /* transform: translate(-100vw); */
 }
@@ -26,4 +26,5 @@ body {
 }
 .slide-box img {
   width: 100%;
+  object-fit: cover;
 }
