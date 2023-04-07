@@ -11,11 +11,20 @@ body {
   z-index: 5;
 }
 
-.brand-size {
-  font-size: 30px;
+.navbar-brand {
+  /* font-size: 30px; */
+  transition: all 1s;
+}
+.status {
+  height: 5px;
+  background-color: salmon;
+  position: fixed;
+  top: 60px;
+  z-index: 5;
+  width: 100%;
 }
 .slide-container {
-  width: 400vw;
+  width: 300vw;
   transition: all 1s;
   /* transform: translate(-100vw); */
 }
