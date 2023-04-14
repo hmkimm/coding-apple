@@ -22,7 +22,7 @@ body {
   position: fixed;
   top: 60px;
   z-index: 5;
-  width: 100%;
+  /* width: 100%; */
 }
 .slide-container {
   width: 300vw;
@@ -37,4 +37,8 @@ body {
 .slide-box img {
   width: 100%;
   object-fit: cover;
+}
+
+.status {
+  width: 0;
 }
