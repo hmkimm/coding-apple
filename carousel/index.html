@@ -33,7 +33,19 @@
       </nav>
       <div  class='status'></div>
    
-      
+      <div class="main-bg">
+        <h4>Shirts on Sale</h4>
+        <button id="login" class="btn btn-danger">로그인</button>
+      </div>
+
+      <div class="black-bg">
+        <div class="white-bg">모달창 내용</div>
+      </div>
+      <script>
+        $('#login').on('click', function(){
+          $('.black-bg').addClass('show-modal')
+        })
+      </script>
      
       
       <script> //프로그래스 바
