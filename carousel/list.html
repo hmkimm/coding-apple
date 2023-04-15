@@ -54,14 +54,13 @@
         { id: 2, price: 60000, title: "Black Monastery" },
       ];
 
-      const cardBody = document.querySelectorAll(".card-body");
       const title = document.querySelectorAll(".card-body > h5");
       const price = document.querySelectorAll(".card-body > p");
 
       function getInfo() {
-        for (let i = 0; i < cardBody.length; i++) {
-          title[i].innerHTML = products[i].title;
-          price[i].innerHTML = products[i].price;
+        for (let i = 0; i < title.length; i++) {
+          title[i].innerHTML = products[i]["title"];
+          price[i].innerHTML = "가격 : " + products[i].price;
         }
       }
 

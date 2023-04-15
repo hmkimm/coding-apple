@@ -57,6 +57,9 @@
       .show {
         display: block;
       }
+      .hide {
+        display: none;
+      }
     </style>
 
     <div class="container mt-3">
@@ -78,6 +81,43 @@
       document.querySelector(".car-title + span").innerHTML = car2.price[1];
     </script>
 
+    <!-- input 탭 -->
+    <form class="container my-5 form-group">
+      <p>상품선택</p>
+      <select class="form-select mt-2">
+        <option>모자</option>
+        <option>셔츠</option>
+        <option>바지</option>
+      </select>
+
+      <select class="form-select mt-2 hi hide">
+        <option>S</option>
+        <option>M</option>
+        <option>L</option>
+      </select>
+    </form>
+
+    <script>
+      document
+        .querySelectorAll(".form-select")[0]
+        .addEventListener("input", (e) => {
+          if (e.target.value == "셔츠") {
+            document.querySelector(".hide").classList.remove("hide");
+          }
+          // if (e.target.value == "모자") {
+          //   document.querySelector(".hide").classList.add("hide");
+          // }
+          else if (e.target.value == "바지") {
+            document.querySelector(".hide").classList.remove("hide");
+            document.querySelectorAll("select")[1].innerHTML = "";
+            var 추가 = `<option>28</option>;
+            <option>30</option>`;
+            $(".form-select").eq(1).append(추가);
+            // document.querySelectorAll("select")[1].append(추가);
+            //아마도 js는 append 단독으로 안쓰이는 것으로 보임. createElement랑 같이 써야됨
+          }
+        });
+    </script>
     <!-- 상품 탭 -->
     <div class="container mt-5">
       <ul class="list">
