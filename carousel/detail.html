@@ -98,11 +98,17 @@
     </form>
 
     <script>
+      var pants = [28, 30, 32];
+      var shirts = [95, 100, 105];
       document
         .querySelectorAll(".form-select")[0]
         .addEventListener("input", (e) => {
           if (e.target.value == "셔츠") {
             document.querySelector(".hide").classList.remove("hide");
+            document.querySelectorAll("select")[1].innerHTML = "";
+            shirts.forEach((item) => {
+              $("select").eq(1).append(`<option>${item}</option>`);
+            });
           }
           // if (e.target.value == "모자") {
           //   document.querySelector(".hide").classList.add("hide");
@@ -110,9 +116,9 @@
           else if (e.target.value == "바지") {
             document.querySelector(".hide").classList.remove("hide");
             document.querySelectorAll("select")[1].innerHTML = "";
-            var 추가 = `<option>28</option>;
-            <option>30</option>`;
-            $(".form-select").eq(1).append(추가);
+            pants.forEach(function (item) {
+              $("select").eq(1).append(`<option>${item}</option>`);
+            });
             // document.querySelectorAll("select")[1].append(추가);
             //아마도 js는 append 단독으로 안쓰이는 것으로 보임. createElement랑 같이 써야됨
           }
