@@ -96,24 +96,38 @@
     </form>
 
     <script>
+      // 변수 지정
       const inputs = document.querySelectorAll("input");
       const progress = document.querySelector("progress");
       const notice = document.querySelector(".msg-notice");
-      let proValue = progress.value;
-      // inputs.addEventListener("input", () => {
-      //   progress.setAttribute("value", 20);
-      // });
-      proValue = 0;
+      const mainForm = document.querySelector("#mainForm");
+      const proBar = document.querySelector("progress");
 
-      inputs.forEach((item) => {
-        item.addEventListener("input", (e) => {
-          if (e.target.value != "") {
-            proValue = proValue + 20;
+      //이벤트 구현
+      mainForm.addEventListener("input", (e) => {
+        let validCounter = 0;
+
+        inputs.forEach((item) => {
+          if (item.validity.valid) {
+            validCounter++;
           }
-          console.log(proValue);
-
-          notice.textContent = "좋아요 잘 하고 있어요!";
         });
+        if (validCounter === 1) {
+          proBar.setAttribute("value", "20");
+          notice.innerHTML = "시작~!";
+        } else if (validCounter === 2) {
+          proBar.setAttribute("value", "40");
+          notice.innerHTML = "좋아요! 잘 하고 있어요";
+        } else if (validCounter === 3) {
+          proBar.setAttribute("value", "60");
+          notice.innerHTML = "절반 왔어요~";
+        } else if (validCounter === 4) {
+          proBar.setAttribute("value", "80");
+          notice.innerHTML = "거의 다 왔어요!";
+        } else if (validCounter === 5) {
+          proBar.setAttribute("value", "100");
+          notice.innerHTML = "마지막!!";
+        }
       });
     </script>
   </body>
