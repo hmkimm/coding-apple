@@ -66,6 +66,7 @@
           <img src="https://via.placeholder.com/600" class="w-100" />
           <h5>${data.title}</h5>
           <p>가격 : ${data.price} </p>
+          <button class="buy">구매</button>
         </div>`;
           row.insertAdjacentHTML("beforeend", 템플릿);
           // append는 $()로 찾은것에만 붙일 수 있습니다.
@@ -94,12 +95,14 @@
           <img src="https://via.placeholder.com/600" class="w-100" />
           <h5>${data.title}</h5>
           <p>가격 : ${data.price} </p>
+         
         </div>`;
         row.insertAdjacentHTML("beforeend", 템플릿);
         // append는 $()로 찾은것에만 붙일 수 있습니다.
       });
     </script>
 
+    <!-- 더보기 버튼 -->
     <div class="container">
       <button class="btn btn-danger">더보기</button>
     </div>
@@ -138,6 +141,14 @@
           }
         );
       }
+
+      let arr = [1, 2, 3, 4];
+      let newArr = JSON.stringify(arr);
+
+      localStorage.setItem("num", newArr);
+      let 꺼낸거 = localStorage.getItem("num");
+
+      console.log(JSON.parse(꺼낸거));
     </script>
   </body>
 </html>

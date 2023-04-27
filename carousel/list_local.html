@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>탭 창</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.6.4.min.js"
+      integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row"></div>
+    </div>
+
+    <script>
+      var products = [
+        { id: 0, price: 70000, title: "Blossom Dress" },
+        { id: 1, price: 50000, title: "Springfield Shirt" },
+        { id: 2, price: 60000, title: "Black Monastery" },
+      ];
+
+      const title = document.querySelectorAll(".card-body > h5");
+      const price = document.querySelectorAll(".card-body > p");
+
+      function getInfo() {
+        for (let i = 0; i < title.length; i++) {
+          title[i].innerHTML = products[i]["title"];
+          price[i].innerHTML = "가격 : " + products[i].price;
+        }
+      }
+      getInfo();
+    </script>
+
+    <script>
+      const row = document.querySelector(".row");
+      let cnt = 0;
+
+      // card 생성
+      products.forEach((data) => {
+        let 템플릿 = `<div class="col-sm-4">
+          <img src="https://via.placeholder.com/600" class="w-100" />
+          <h5>${data.title}</h5>
+          <p>가격 : ${data.price} </p>
+          <button class="buy">구매</button>
+         
+        </div>`;
+        row.insertAdjacentHTML("beforeend", 템플릿);
+        // append는 $()로 찾은것에만 붙일 수 있습니다.
+      });
+    </script>
+
+    <script>
+      // let arr = [1, 2, 3, 4];
+      // let newArr = JSON.stringify(arr);
+
+      // localStorage.setItem("num", newArr);
+      // localStorage.removeItem("num");
+      // let 꺼낸거 = localStorage.getItem("num");
+
+      // console.log(JSON.parse(꺼낸거));
+
+      //구매버튼 누르면 로컬에 저장하기
+      $(".buy").click(function (e) {
+        let title = $(e.target).siblings("h5").html();
+
+        //카트에 무언가 있으면
+        if (localStorage.getItem("cart") != null) {
+          //있는걸 꺼내서 문자화 하기
+          let 꺼낸거 = JSON.parse(localStorage.getItem("cart"));
+
+          // 문자화 한 배열에 클릭한 타이틀 집어넣기
+          꺼낸거.push(title);
+
+          // 그 후에 다시 문자화 해서 로컬스토리지에 저장
+          localStorage.setItem("cart", JSON.stringify(꺼낸거));
+        } else {
+          //카트에 아무것도 없으면
+          // 클릭한것을 문자화 하고, 배열에 집어넣어서 로컬스토리지에 저장
+          localStorage.setItem("cart", JSON.stringify([title]));
+        }
+      });
+    </script>
+  </body>
+</html>
